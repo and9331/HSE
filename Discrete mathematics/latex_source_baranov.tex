@@ -1,0 +1,146 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage[left=25mm, top=20mm, right=25mm, bottom=20mm, nohead]{geometry}
+\usepackage{amsmath, amsfonts, amssymb}
+\newcommand{\lrl}[1]{\({#1}\)}
+
+\title{\vspace{-2cm}Midterm Quiz}
+\author{Andrey Baranov}
+\date{April 2023}
+
+\begin{document}
+
+\maketitle
+\subsection*{1.}
+Can it be that \(|A| = 5\), \(|B| = 3\) and \(|A \cup B| = 6\)? If it is possible, provide an example, otherwise provide a proof that this is impossible.
+\subsubsection*{Solution}
+The size of the sets union is defined by the following formula: 
+\[|A \cup B| = |A| + |B| - |A \cap B|,\]
+which illustrates the inclusion-exclusion principle. \(A\) and \(B\) here are two finite sets, and this satisfies the condition. We could substitute given values to the formula, getting:
+\[6 = 5 + 3 - |A \cap B|\]
+After simplifying the equation:
+\[|A \cup B| = 2\]
+That way such \(A\) and \(B\) must have only 2 matching elements, which is possible. 
+The example could be following:
+\begin{center}
+\(A = \{1, 2, 3, 4, 5\}\) and \(B = \{1, 2, 6\}\)
+\end{center}
+In this case \(|A| = 5\) and \(|B| = 3\), their union \(A \cup B = \{1, 2, 3, 4, 5, 6\}\), which has \(|A \cup B| = 6\). And intersection \(A \cap B = \{1, 2\}\), having \(|A \cap B| = 2\) That's satisfies inclusion-exclusion formula, giving 6 = 5 + 3 - 2. \\\\
+Therefore, the answer to the questions is yes, it is possible, considering example and general rule above.
+
+\subsection*{2.}
+Can it be that \(|A| = 5\), \(|B| = 3\), \(|A \cup B| = 6\) and \(|A \cap B| = 1\)? If it is possible, provide an example, otherwise provide a proof that this is impossible.
+\subsubsection*{Solution}
+Knowing the inclusion-exclusion formula \(|A \cup B| = |A| + |B| - |A \cap B|\), we can check if the given values satisfy the condition, getting \(6 = 5 + 3 - 1 \rightarrow{} 6 = 7\), which is incorrect. \\\\ 
+Thus, we have proofed that it is not possible to hold all conditions in the task at the same time.
+\subsection*{3.}
+Check whether the following equivalence on sets holds by considering elements of each side and checking whether they are contained in the other side:
+\[(A \cup B) \setminus C = (A \setminus C) \cup (B \setminus C)\]
+\subsubsection*{Solution}
+One of the ways to check the equivalence above is to proof that any chosen element on the left side is also on the right side of the equation.\\ \\
+Let us first check the left side. Chosen element \(x\), which have to be an element of \((A \cup B) \setminus C\). That means \(x\) must be in either \lrl{A} or \lrl{B}, and definitely not in \lrl{C}. In this case \lrl{x} have to be in one or in both of the sets \lrl{A \setminus C} and \lrl{B \setminus C}, but they are only subsets of \lrl{A} and \lrl{B} that do not contain elements of \lrl{C}. Hence, \lrl{x} is in \lrl{(A \setminus C) \cup (B \setminus C)}. \\ \\
+More mathematically formal way to describe written above:
+\[x \in (A \cup B) \setminus C \Leftrightarrow x \in A \text{ or } x \in B \text{ and } x \notin C\] 
+\[\text{Since } A \setminus C  \subseteq A \text{ and } B \setminus C \subseteq B \text{, } x \in A \setminus C \text{ or } x \in B \setminus C \rightarrow x \in (A \setminus C) \cup (B \setminus C)\]
+Next, let \lrl{y} be an element of \lrl{(A \setminus C) \cup (B \setminus C)}, the right side of the equivalence. That means \lrl{y} is in either \lrl{A \setminus C} or \lrl{B \setminus C}, or in both. If \lrl{y} is in \lrl{A \setminus C}, then \lrl{y} is in \lrl{A} and not in \lrl{C}. Consequently, \lrl{y} is also in \lrl{A \cup B}, since it is in \lrl{A} and not in \lrl{C}. Therefore, \lrl{y} is in \lrl{(A \cup B) \setminus C}. Similarly, if \lrl{y} is in \lrl{B \setminus C}, then y is also in \lrl{(A \cup B) \setminus C}. \\ \\
+Formally speaking:
+\[y \in (A \setminus C) \cup (B \setminus C) \Leftrightarrow y \in A \setminus C \text{ or/and } y \in B \setminus C \rightarrow y \in A \text{ or/and } y \in B \text{ and } y \notin C\ \rightarrow \] 
+\[\rightarrow y \in A \cup B, y \notin C \Leftrightarrow y \in (A \cup B) \setminus C\]
+\\
+That way we have shown that any chosen element on the left side is also on the Right side, and vice versa. So in conclusion we can tell, that the equivalence holds.
+
+\subsection*{4.}
+Suppose mobile company has 6 mobile plans. They make a survey among their clients asking for the client’s favorite mobile plan, second favorite plan (that should be different from the first one) and the most overpriced mobile plan in client’s opinion (that can be the same as his two favorite plans, or can be some other plan). What is the number of possible different outcomes of the survey? Provide a detailed explanation of your calculation. If you are using some of the rules (including the rule of sum and the rule of product), please explain why are you using these rules.
+
+\subsubsection*{Solution}
+The perfect way to solve this task is to use the rule of product. The client has to choose among 6 mobile plans and make a selection 3 times. Also, as it is mentioned in the task сonditions the first two selections have to be pairwise different. Meaning on the first iteration, there are 6 options to choose from. On the second there are one options less, exactly 5. And on the third final selection there are all 6 options once more since mobile plans could be the same to the chosen previously. So the calculated number of different outcomes would be:
+\[6 * 5 * 6 = 180\]
+The rule of product use is due to the task conditions and since we have a sequence of choices. The number of options for each selection is not affected by the other selections. Although the choices for the second question rely on the selection made for the first question, the overall number of possibilities for the second question is not influenced by the choices for the other questions. Similarly, although the choices for the third question depend on the selections made for the first two questions, the total number of possibilities for the third question is not impacted by the choices for the other questions. Thus, we multiplied the number of options for each question to determine the total number of outcomes for the survey. \\ \\ 
+Also it is not possible to use the rule of sum for this task, because the three questions asked in the survey are not mutually exclusive. The same mobile plan can be chosen as the favorite, second favorite, or the most overpriced plan by different clients. Therefore, the number of possible outcomes for each question does not affect the number of possible outcomes for the other questions, which is a necessary condition for using the rule of sum. The rule of product is the appropriate counting principle for this task, as it considers the total number of possibilities for all three questions as a sequence of dependent events.
+\subsection*{5.} Suppose mortgage company has 10 houses. They want to calculate distance between each two (distinct) houses among them (just usual distance on the map). We want to count how many distances we will calculate. What is wrong with the following solution attempt? Explain the mistake and provide a correct answer to the problem. \\
+
+\textbf{Solution attempt}: We need to count the number of pairs of houses. The first house can be picked in 10 ways. The second house can be picked in 9 possible ways, since one of the houses was already picked. By the rule of product the pairs of houses can be picked in 10 times 9 = 90 possible ways. So we will need to make 90 calculations.
+
+\subsubsection*{Solution}
+First of all, if we want to calculate the number of distinct combinations for choosing a pair of elements (or more) from a sequence, there is a classical definition for this:
+\[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]
+In our case, \lrl{k} is the number of elements we choose, meaning 2 houses, which we are choose from 10 elements (all houses) in the sequence, thus \lrl{n = 10} and \lrl{k = 2}. So, the number of ways to choose 2 houses from 10 in order to calculate the distance between them. Chosen pairs should be unordered and without repetitions, it doesn't matter from which house we start measuring, since the distance between two distinct houses is the same both ways. Considering written before, getting:
+\[\binom{10}{2} = \frac{10!}{2!(10-2)!} = 45\]
+45 distances will be calculated between two distinct houses on the map.\\\\
+As for the solution attempt, the reason for the mistake in it, that we are not required to choose every house as a start. The rule of product in that case calculates the number of distances both ways (e.g. from the house \lrl{A} to \lrl{B} and from \lrl{B} to \lrl{A}). Logically it's correct, but we are not asked to find the number of ways to calculate distances, but the number of calculated distances itself. Meaning every distance between the two houses must be calculated only once. Giving \(90 / 2 = 45\) distances.
+
+\subsection*{6. }
+How many ways are there to write down numbers from 0 to 9 in a sequence in such a way that even numbers are positioned in the sequence in the increasing order and odd numbers are positioned in the decreasing order? Provide a detailed explanation for your solution.
+
+\subsubsection*{Solution}
+
+To solve this problem, we can use the stars and bars formula or the balls and urns formula. We can represent the arrangement of the even numbers using a diagram of 5 stars and 5 bars, where the stars represent the even numbers, and the bars represent the boundaries between the six places. For example, the following diagram represents the arrangement 0 2 4 6 8:
+\begin{center}
+* | * | * | * | * |
+\end{center}
+To add the odd numbers to the sequence, we need to place them in the spaces between the even numbers in decreasing order. We have a total of (6 - 1) = 5 spaces between the even numbers, and we need to choose 5 of them to place the odd numbers. We can represent this situation using a diagram of 5 stars and 5 bars, where the stars represent the odd numbers, and the bars represent the boundaries between the spaces. For example, the following diagram represents the arrangement 9 7 5 3 1:
+\begin{center}
+* | * | * | * | * |    
+\end{center}
+We can now combine the two diagrams by placing the stars and bars of the second diagram in the spaces between the stars and bars of the first diagram. For example, the following diagram represents the arrangement 0 9 2 7 4 5 6 3 8 1:
+\begin{center}
+* | * | * | * | * | * | * | * | * | \\
+0 9 2 7 4 5 6 3 8 1    
+\end{center}
+To calculate the number of ways to choose the 5 spaces to place the odd numbers, we can use the stars and bars formula. Plugging in k = 5 and n = 6, we get:
+
+\[\binom{k+n-1}{n-1} = \binom{5+6-1}{6-1} = \binom{10}{5} = 252.\]
+
+Therefore, there are 252 ways to arrange the 5 even numbers in increasing order and the 5 odd numbers in decreasing order in a sequence of 6 digits.
+
+\subsection*{7.} Let \(A \text{ and } B\) be events associated with some random experiment. Is it possible that these events never occur simultaneously and \(P(A) = \frac{1}{2}\), \(P(B) = \frac{1}{3}\)? If yes, give an example of random experiment and events that satisfy these conditions. If no, give a proof.
+
+\subsubsection*{Solution}
+Yes, such situation is quite possible. Let's consider following example.  A random experiment in which a fair six-sided die is rolled. Assume that there are two events for the die roll:
+\begin{center}
+\lrl{A} - die rolled an odd number;
+\lrl{B} - die rolled a number, which is multiple of 3.
+\end{center}
+The sample space for the six-sided die roll is \(\Omega = \{1, 2, 3, 4, 5, 6 \}\), meaning all the possible numbers on the die. Sets of outcomes for the events are: \(A = \{1, 3, 5\}\) and \(B = \{3, 6\}\). Considering probability of independent events formula, where \(|A|\) - number of outcomes for event \(A\) and \(|\Omega|\) - number of all possible outcomes, getting:
+\[P(A) = \frac{|A|}{|\Omega|} = \frac{3}{6} = \frac{1}{2}\]
+The same for the event B, where:
+\[P(B) = \frac{2}{6} = \frac{1}{3}\]
+Furthermore, \(A\) and \(B\) can occur simultaneously, since for both events there is an outcome with and odd number, which is multiple of 3, specifically \{3\}. Thus, the example satisfies conditions in the task.\\\\Also let's check an option that events \(P(A) = \frac{1}{2}\) and \(P(B) = \frac{1}{3}\) never happen at the same time. Suppose \(A\) and \(B\) cannot occur simultaneously, that means \(P(A \cap B) = 0.\) Considering the formula for the probability of the union of two events, getting:
+\[P(A \cup B) = P(A) + P(B) - P(A \cap B) = P(A) + P(B) - 0 = \frac{1}{2} + \frac{1}{3} = \frac{5}{6}\]
+Since the probability of the all possible outcomes from the sample space \(\Omega\) equals to 1, meaning \(P(\Omega) = 1\). Condition \(P(A \cup B) \leq P(\Omega) \Leftrightarrow \frac{5}{6} \leq 1 \) is satisfied, because no other event probability can be more than probability of the whole sample space. And this condition stands. Therefore, such situation is also possible.
+%That way \(P(\Omega) = P(A \cup B) + P\neg({A \cup B})\), if we substitute values \(1 = \frac{5}{6} + P({A \cup B})\)
+\subsection*{8.} There is a small village with only ten adult people living in it. Instead of elections, they form their "government" using random choice. Every adult villager has equal probability to be chosen. Consider two random experiments: \\
+
+\par 1. The villagers want to select a Village Council that consists of three persons. The researcher is interested in the list of members of one Council.
+
+\par 2. Every four months villagers select a President. The same person can be President arbitrary number of times. The same person can be a President and a member of Village Council at the same time. The researcher is interested in the ordered list of Presidents during one year. \\
+
+Describe the sample spaces (sets of all elementary outcomes) for both experiments. Use the corresponding notions from combinatorics. Find the number of elements in both sample spaces. Provide all calculations and detailed explanations. What is the difference between these experiments?
+
+\subsubsection*{Solution}
+
+Case \#1. Considering that three persons being selected out of all ten adult villagers, it represents the combination problem, exactly the number of ways to choose 3 from 1. Using the formula \(\binom{n}{k} = \frac{n!}{k!(n-k)!}\), where \(n = 10\) the number villagers to choose from and \(k = 3\) the number of Council members that are needed to be chosen. Therefore, the sample space for selecting a Village Council of three people consists of all possible combinations of (10 choose 3). Meaning \(\frac{10!}{3!(10-3)!} = 120\) ways. Meaning for the particular sample space \(S_1\) of all the outcomes for the chosen council, the \(|S_1| = 120\).\\
+\\Case \#2. According to the task intro the researcher is interested in getting the ordered list of presidents during one year. There are two approaches of getting the results. Since every person can be a president arbitrary number of times during a specific year, there is a possibility of repetitions. Let's consider the size of sample space \(S_2\) for this case. We want to have the ordered list and the repetitions are possible. For this there is a tuples formula \(n^k\) where \(n = 10\) is a number of villagers to choose from and \(k = 3\) is the number of Presidents, elected every 4 months during 12 months period. Substitute given values, getting \(10^3 = 1000\) different outcomes for that problem, meaning \(|S_2| = 1000.\) \\ \\
+The difference between these experiments is that in the first experiment, we are selecting a group of three people from the village to form a council, and the order in which they are chosen does not matter. In the second experiment, we are selecting one person at a time to be the President, and the order in which they are selected matters, but repetitions are allowed. Therefore, the first experiment involves combinations, and the second experiment involves ordered tuples with repetitions.
+
+\subsection*{9.}
+Consider the following random experiment. We roll two identical indistinguishable symmetric dices once and record the result of this tossing (i.e. "on one dice we obtained 1 and on another we obtained 2"). \\
+
+Describe sample space (set of all outcomes) of this experiment. What is the probability of event "on one dice we obtained 1 and on another we obtained 2"? What is the probability of event "we obtained two 1's"? What kind of sample space you consider in this problem: sample space with equal probabilities of outcomes or sample space with non-equal probabilities of outcomes? Explain your answer.
+
+\subsubsection*{Solution}
+
+Consider the sample space \(\Omega\) for this experiment. It consists of all possible outcomes when rolling two identical indistinguishable symmetric dice. Each outcome in the sample space can be represented by an ordered pair of numbers \((x,y)\), where \(x\) and \(y\) are the numbers rolled on the two dice, respectively. Since the dice are identical, each ordered pair has a corresponding pair obtained by switching the two numbers, and these pairs are indistinguishable. Therefore, the sample space consists of all unique pairs \((x,y)\) where \(x \leqslant y\).
+That way the size of the sample space \(|\Omega| = 21\), since there are 6 pairs with both numbers equal, and 15 pairs with different numbers. Here is the sample space: \\ \\
+\begin{center}    
+\(\Omega = \{(1,1), (1,2), (1,3), (1,4), (1,5), (1,6), \\ (2,2), (2,3), (2,4), (2,5), (2,6), \\ (3,3), (3,4), (3,5), (3,6), \\ (4,4), (4,5), (4,6), \\ (5,5), (5,6), \\ (6,6)\}\) \\
+\end{center}\\Let's consider following events: \\
+\par\(A\) - on one dice we obtained 1 and on another we obtained 2; \\
+\par\(B\) - we obtained two 1’s \\
+
+All the outcomes for event \(A = \{(1,2)\}\), since the dice are indistinguishable and according to the condition we have set previously, that way the probability of the event \(A\), \(P(A) = \frac{|A|}{|\Omega|} = \frac{1}{21}\). As for the event B, the outcome is the only one, meaning \(B = \{(2,2)\}\). Getting \(P(B) = \frac{|B|}{|\Omega|} = \frac{1}{21}\). \\
+
+For this problem the sample space has equal probabilities of outcomes, since the dice are identical and symmetric, which means that each outcome has an equal chance of occurring. Therefore, each outcome in the sample space has an equal probability of \(\frac{1}{21}\).
+\end{document}
