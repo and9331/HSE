@@ -9,7 +9,8 @@ Provide detailed answers to the questions below. All statements should be provid
 
 3. Which of the following pictures can be drawn in one stroke of pen, without traversing a line twice (like a Euler path in a graph)?
 
-<img src="/images/task3.png" alt="Alt text">
+![task3](/images/task3.PNG)
+
 
 4. Does there exist a graph with 5 vertices which have the following degrees: 2, 4, 4, 4, 4?
 
